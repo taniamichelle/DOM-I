@@ -60,6 +60,17 @@ nav[3].textContent = siteContent['nav']['nav-item-4'];
 nav[4].textContent = siteContent['nav']['nav-item-5'];
 nav[5].textContent = siteContent['nav']['nav-item-6'];
 
+//Create new nav elements
+const newNavEl = document.createElement('a');
+newNavEl.textContent = 'Home';
+
+const newNavEl2 = document.createElement('a');
+newNavEl2.textContent = 'Learn More';
+
+const navBar = document.querySelector('nav');
+navBar.prepend(newNavEl);
+navBar.appendChild(newNavEl2);
+
 //Turn Nav text green
 const navText = document.querySelectorAll('a');
 navText.forEach(function (currentValue) {
