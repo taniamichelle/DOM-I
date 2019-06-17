@@ -1,0 +1,120 @@
+/*
+*******DOM*******
+
+**SINGLE ELEMENT DOM selectors**
+//.getElementById()
+const btnID = document.getElementById('custom-btn');
+console.log(btnID);
+
+// .querySelector()
+const btnQuery = document.querySelector('button');
+console.log(btnQuery);
+
+
+**MULTIPLE ELEMENT DOM selectors**
+const tagNameTest = document.getElementsByTagName('p');
+console.log(tagNameTest);
+
+//can convert an array-like shallowly-copied list into an Array
+const newTagNameTest = Array.from(tagNameTest);
+
+//limited access to methods. __proto__: HTML collection
+const classNameTest = document.getElementsByClassName('content-area');
+console.log(classNameTest);
+tagNameTest.forEach();
+
+//using this provides access to more methods. __proto__: NodeList. do NOT need to convert to an array
+const classQuery = document.querySelectorAll('.content-area');
+console.log(classQuery);
+
+//HTMLCollection vs NodeList:
+Similarities:
+-both are array-like
+-both are shallowly copied
+Differences:
+-NodeList provides more built-in methods
+-HTMLCollection is faster in performance
+
+//METHOD EXAMPLES:
+1)
+classQuery.forEach(x => {
+    x.textContent = '1337 hax. all your p's are belong to me'
+});
+
+2)
+const classQuery =
+document.querySelectorAll('.content-area');
+classQuery.forEach(p => p.style.fontWeight = 'bold');
+
+const listElems = document.querySelectorAll('li');
+listElems.forEach(li => li.style.fontStyle = 'italic');
+
+3)
+const logoContainer = document.querySelectorAll('.logo-container');
+console.log(logoContainer);
+console.log(logoContainer.length);
+console.log(logContainer.entries());
+console.log(logoContainer.forEach(element => {element}));
+console.log(logoContainer.keys());
+console.log(logoContainer.values());
+
+
+**DOM MANIPULATION**
+const servicesHeader = document.querySelector('.services-header');
+console.log(servicesHeader.textContent);
+servicesHeader.textContent = 'Agency Services';
+
+const servicesImg = document.querySelector('.services-img');
+servicesImg.setAttribute('src', 'https://tk-assets.lambdaschool.com/820014a9-1951-4880-ac41-08202fca5be0-agency-pic.png')
+--or--
+const servicesImg = document.querySelector('.services-img');
+servicesImg.src = 'https://tk-assets.lambdaschool.com/820014a9-1951-4880-ac41-08202fca5be0-agency-pic.png';
+servicesImg.alt = 'A laptop computer on a table with coffee and headphones';
+
+//JS STYLE EXAMPLE
+-If you've written 'background-color: ' in CSS it becomes 'style.backgroundColor' in JS
+
+const secondaryHeaders = document.querySelectorAll('h2');
+secondaryHeaders[0].style.color = 'crimson';
+secondaryHeaders[1].style.color = 'crimson';
+--or--
+const secondaryHeaders = document.querySelectorAll('h2');
+secondaryHeaders.forEach(function(currentValue) {
+    currentValue.style.color = 'crimson';
+});
+
+//ADD, REMOVE, TOGGLE ELEMENTS: DOMTokenList (or .classList)
+   //add
+const bottomDiv = document.querySelector('.bottom-div');
+  //remove
+bottomDiv.classList.remove('extra-stuff');
+
+//CREATING ELEMENTS FROM JS ONLY
+  //Step 1: create a new element
+const newPTag = document.createElement('p');
+
+  //Step 2: add some content to newly created element
+newPTag.textContent = 'blah blah blah';
+
+  //Step 3: prepend or append the newly created element to an existing DOM node on the page
+const secondaryContent = document.querySelector('.secondary-content');
+secondaryContent.append(newPTag);
+
+  //EXAMPLE:
+    //created an array
+const technologies = ['User Experience', 'Data Science', 'Java'];
+    //gain access to work list
+const workList = document.querySelector('.work-list');
+    //loop through array using .forEach and look at current value
+technologies.forEach(currentValue => {
+    //each time we loop (3x in this case b/c 3 items in array) forEach will look at each current
+    //value and an item from array is assigned as a list item which is assigned the value of
+    //document.createElement('li')
+    const listItem = document.createElement('li');
+    //listItem is created inside this loop. text content is assigned with the current value
+    listItem.textContent = currentValue;
+    //use append method to append new list item
+    workList.append(listItem);
+});
+
+*/
